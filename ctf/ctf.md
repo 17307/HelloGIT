@@ -61,3 +61,16 @@
         -   base32中只有大写字母（A-Z）和数字234567
 ## 4.   PHP
 -   md5函数不能对数组进行处理
+
+## 5.   Web
+-   注意抓包
+-   仔细观察
+-   扫描发现了  .git    ???
+
+-    注入：
+     - 发现会网站会检查输入，过滤关键字，如：`index.php?id=1 order by 3 ` 会被过滤，可以考虑用如下的方式：
+     - `index.php?id=1 or<>der by 3 `
+     - `index.php?id=1 or/**/der by 3 `
+-  `user.php`
+-  `user.php.bak`
+-  可以用浏览器修改浏览器内的标签
