@@ -67,3 +67,21 @@
     -   同时由于同源策略，攻击者无法获取返回页面的token。
     -   在xss界面构造payload` <iframe src=../csrf onload=alert(frames[0].document.getElementsByName('user_token')[0].value)>`获取token
     -   个人想法：通过xss构造payload携带cookie，token访问本机的某个页面，这个页面在通过cookie和token去攻击。
+
+##  文件包含
+ - level: low
+    - `http://192.168.32.215/dvwa/vulnerabilities/fi/?page=/opt/lampp/htdocs/dvwa/phpinfo.php`
+- level:medium
+    - `http://192.168.32.215/dvwa/vulnerabilities/fi/?page=/opt/lampp/htdocs/dvwa/phpinfo.php`
+- level:high
+    - source：   
+`<?php  
+// The page we wish to display  
+$file = $_GET[ 'page' ];
+// Input validation
+if( !fnmatch( "file*", $file ) && $file != "include.php" ) {
+    // This isn't the page we want!
+    echo "ERROR: File not found!";
+    exit;
+}
+?> `

@@ -67,10 +67,39 @@
 -   仔细观察
 -   扫描发现了  .git    ???
 
--    注入：
+-  #  注入：
      - 发现会网站会检查输入，过滤关键字，如：`index.php?id=1 order by 3 ` 会被过滤，可以考虑用如下的方式：
      - `index.php?id=1 or<>der by 3 `
      - `index.php?id=1 or/**/der by 3 `
+     - **一个原则：语句正确才会执行**
+     - 用join方式代替    `**,**`  如
+        - `union select * from ((select user()) a join (select version())b)`==`union select user(),version()`
+        - **起别名**
+        - 将#进行URL编码 %23
+    - ### sql注入绕过技巧
+        - [sql注入绕过技巧](http://www.cnblogs.com/Vinson404/p/7253255.html)
+        - 绕过空格
+            - 两个空格代替一个空格，用Tab代替空格，%a0=空格：
+            - `%20 %09 %0a %0b %0c %0d %a0 %00 /**/  /*!*/`
 -  `user.php`
 -  `user.php.bak`
 -  可以用浏览器修改浏览器内的标签
+
+-   #   某次文件泄露题目
+    -   扫描发现 .git文件泄漏
+    -   通过githack.py下载泄漏的文件（linux）
+    -   直接 git log 查看记录 然后 git diff <版本号>  <版本号> 对比信息
+    -   然后发现 vim编辑器的恢复文件  .swo
+    -   下载 .swo文件后 将名字改为 .swp
+    -   对于  a.php.swp  重命名为   **.a.php.swp** 然后用 `vim -r a.php`即可查看源文件
+
+
+-   #   UTF7编码
+    -   在callback处有url编码，解码得：`+/v+ +ADwAcwBjAHIAaQBwAHQAPgBhAGwAZQByAHQAKAAiAGsAZQB5ADoALwAlAG4AcwBmAG8AYwB1AHMAWABTAFMAdABlAHMAdAAlAC8AIgApADwALwBzAGMAcgBpAHAAdAA+AC0-`
+
+    -   由+/v+知是utf-7编码
+-   #   HTTP头
+    -   通过名字就知道，X-Forwarded-For 是一个 HTTP 扩展头部
+    -   X-Forwarded-For 请求头格式非常简单，就这样：`X-Forwarded-For: client, proxy1, proxy2`
+    -   如果一个 HTTP 请求到达服务器之前，经过了三个代理 Proxy1、Proxy2、Proxy3，IP 分别为 IP1、IP2、IP3，用户真实 IP 为 IP0，那么按照 XFF 标准，服务端最终会收到以下信息：  
+    `X-Forwarded-For: IP0, IP1, IP2`
