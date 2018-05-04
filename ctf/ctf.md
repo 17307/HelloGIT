@@ -84,6 +84,7 @@
 -  `user.php`
 -  `user.php.bak`
 -  可以用浏览器修改浏览器内的标签
+-  index.php.txt
 
 -   #   某次文件泄露题目
     -   扫描发现 .git文件泄漏
