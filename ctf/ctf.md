@@ -61,6 +61,16 @@
         -   base32中只有大写字母（A-Z）和数字234567
 ## 4.   PHP
 -   md5函数不能对数组进行处理
+-   `strcmp()`函数可以不可以对数组处理
+    ```php
+        if (isset($_GET['a'])) {  
+            if (strcmp($_GET['a'], $flag) == 0)  
+                    die('Flag: '.$flag);  
+             else  
+                    print '离成功更近一步了';  
+        }
+        //提交： a[]=1
+    ```
 
 ## 5.   Web
 -   注意抓包
