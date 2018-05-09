@@ -113,4 +113,9 @@
     -   通过名字就知道，X-Forwarded-For 是一个 HTTP 扩展头部
     -   X-Forwarded-For 请求头格式非常简单，就这样：`X-Forwarded-For: client, proxy1, proxy2`
     -   如果一个 HTTP 请求到达服务器之前，经过了三个代理 Proxy1、Proxy2、Proxy3，IP 分别为 IP1、IP2、IP3，用户真实 IP 为 IP0，那么按照 XFF 标准，服务端最终会收到以下信息：  
-    `X-Forwarded-For: IP0, IP1, IP2`
+    `X-Forwarded-For: IP0, IP1, IP2`       
+    -   client-ip:127.0.0.1 也可以用来修改IP值
+
+-   # MD5相关
+    -   php中 0e******=0e*****
+    -   hash拓展攻击
