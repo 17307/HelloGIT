@@ -117,5 +117,13 @@
     -   client-ip:127.0.0.1 也可以用来修改IP值
 
 -   # MD5相关
-    -   php中 0e******=0e*****
+    -   ##   php中  <font color="blue">`0e******==0e*****`</font>
+        -   在PHP中  可以通过上面的原理进行 hash碰撞
     -   hash拓展攻击
+        -   kali    python
+        -   `hashpumpy.hashpump('78cfc57d983b4a17e55828c001a3e781','guest','lalaadmin',46)`
+        -   参数：原始md5,原始数据中的已知内容，新增内容，原始未知长度
+        -   key.已知.新增
+        -   结果`('5f585093a7fe86971766c3d25c43d0eb', 'guest\x80\x00\x00\x00\x00\x98\x01\x00\x00\x00\x00\x00\x00admin')`
+        -   第一个为新的md5
+        -   第二个为新的内容：`guest\x80\x00\x00\x00\x00\x98\x01\x00\x00\x00\x00\x00\x00admin`
