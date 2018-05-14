@@ -75,7 +75,8 @@
     - `http://192.168.32.215/dvwa/vulnerabilities/fi/?page=/opt/lampp/htdocs/dvwa/phpinfo.php`
 - level:high
     - source：   
-`<?php  
+```php
+<?php  
 // The page we wish to display  
 $file = $_GET[ 'page' ];
 // Input validation
@@ -84,4 +85,5 @@ if( !fnmatch( "file*", $file ) && $file != "include.php" ) {
     echo "ERROR: File not found!";
     exit;
 }
-?> `
+?> 
+```

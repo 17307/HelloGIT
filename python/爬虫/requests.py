@@ -3,13 +3,12 @@
 import requests
 from bs4 import BeautifulSoup
 
-# 创建session
+# 
 
 s = requests.session()
 
 '''
-也可以通过 s.post()先登录,直接取得cookie
-关于cookie的添加 还有其他方法
+
 -	s.cookies.set('cookie-name', 'cookie-value', path='/', domain='.abc.com') 
 -	c = requests.cookies.RequestsCookieJar()  
 	c.set('cookie-name', 'cookie-value', path='/', domain='.abc.com')  
