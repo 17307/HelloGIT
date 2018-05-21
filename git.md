@@ -5,6 +5,12 @@
 -   git commit -m "文件修改说明"  提交文件到分支
 -   git status  查看仓库当前的状态
 -   git diff   查看当前版本和上一版本的区别
+-   
+        git diff    #是工作区(work dict)和暂存区(stage)的比较
+        git diff --cached    #是暂存区(stage)和分支(master)的比较
+        git diff HEAD  #查看工作区和版本库里面最新版本的区别
+        git checkout -- file  #可以丢弃工作区的修改：总之，就是让这个文件回到最近一次git commit或git add时的状态。
+        git reset HEAD <file> 可以把暂存区的修改撤销掉
 -   git log  查看历史记录
 -   git reset -hard HEAD^  版本回退到上一个版本（也可以将暂存区的修改退回到工作区）
 -   git reset -hard id   版本回退到commit id对应的版本
@@ -12,6 +18,7 @@
 -   git rm file  删除版本库中的文件
 
 ##  关于远程仓库
+-   git@github.com:17307/Learning.git
 -   git push origin master   推送到远程仓库
 -   git clone -    git@github.com:PrettyMask/learngit.-    git  从远程仓库克隆
 
@@ -51,7 +58,6 @@
         
         ~路径为C：/User/.ssh
         
-
 
 
 
