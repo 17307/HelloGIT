@@ -22,6 +22,35 @@
 -   git branch -d dev 删除分支dev
 -   git branch 查看分支并确定当前分支
 
+#   git使用
+
+-   创建好私钥后
+       ```
+       eval `ssh-agent -s`
+       ```
+    返回 `Agent pid 4784`
+-   然后将私钥添加到缓存
+
+    `$ ssh-add .ssh/id_rsa`
+
+-   `$ ssh -p 2200 -i ~/.ssh/id_rsa_test user@ssh.test.com`
+-   config配置文件
+
+        $ vim ~/.ssh/config
+        Host sshtest
+            HostName ssh.test.com
+            User user
+            Port 2200
+            IdentityFile ~/.ssh/id_rsa_test
+
+        Host ssttest2
+            HostName ssh.test2.com
+            User user2
+            Port 2345
+            IdentityFile ~/.ssh/id_rsa_test2
+        
+        ~路径为C：/User/.ssh
+        
 
 
 
