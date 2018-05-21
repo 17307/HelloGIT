@@ -18,7 +18,7 @@
 -   git rm file  删除版本库中的文件
 
 ##  关于远程仓库
--   git@github.com:17307/Learning.git
+-   git remote add origin git@github.com:17307/Learning.git
 -   git push origin master   推送到远程仓库
 -   git clone -    git@github.com:PrettyMask/learngit.-    git  从远程仓库克隆
 
