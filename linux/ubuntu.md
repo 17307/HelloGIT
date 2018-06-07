@@ -17,3 +17,7 @@ auto eth0
 #iface eth0 inet static
 iface eth0 inet dhcp
 ```
+#   密码问题
+-   ubuntu修改root密码，$ sudo passwd root
+-   su root    
+    Password:   
